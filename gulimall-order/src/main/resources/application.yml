@@ -1,0 +1,58 @@
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://10.211.55.4:3306/gulimall_oms?useUnicode=true&characterEncoding=UTF-8&useSSL=false&serverTimezone=Asia/Shanghai
+    driver-class-name: com.mysql.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+  application:
+    name: gulimall-order
+
+  rabbitmq:
+    host: 10.211.55.4
+    port: 5672
+    virtual-host: /
+    #开启发送端确认
+    publisher-confirms: true
+    #开启发送端抵达队列确认
+    publisher-returns: true
+    #抵达队列，异步优先回调
+    template:
+      mandatory: true
+    #手动ack消息
+    listener:
+      simple:
+        acknowledge-mode: manual
+
+  thymeleaf:
+    cache: false
+
+  redis:
+    host: 10.211.55.4
+    port: 6379
+
+  session:
+    store-type: redis
+
+
+# sql映射文件位置
+mybatis-plus:
+  mapper-locations: classpath:/mapper/**/*.xml
+  global-config:
+    db-config:
+      id-type: auto
+server:
+  port: 9000
+
+# 自定义线程池参数
+gulimall:
+  thread:
+    corePoolSize: 10
+    maxPoolSize: 20
+    keepAliveTime: 30
+
+
+

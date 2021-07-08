@@ -1,0 +1,24 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848
+
+    alicloud:
+      access-key: LTAI5tCVMFRLbcKNv3UczB46
+      secret-key: 5Jv311kVFEfLuS4GCje9G7SARyIuNE
+      oss:
+        endpoint: oss-eu-central-1.aliyuncs.com
+        bucket: gulimallbucket-yz
+
+      #短息配置
+      sms:
+        host: https://gyytz.market.alicloudapi.com
+        path: /sms/smsSend
+        appcode: 36b2ae6bfb0849819b80c6dec2432dfc
+
+  application:
+    name: gulimall-third-party
+
+server:
+  port: 30000
